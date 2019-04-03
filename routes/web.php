@@ -11,6 +11,15 @@
 |
 */
 
+//引入_后台路由
+include_once __DIR__.'/admin/web.php';
+
+
+//前台路由
 Route::get('/', function () {
     return view('welcome');
 });
+//认证
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

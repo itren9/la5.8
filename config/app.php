@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -133,7 +133,10 @@ return [
     | this array to grant expanded functionality to your applications.
     |
     */
-
+    /**   mcj
+          服务提供者 在config/app.php中配置，laravel自动 注册到 服务容器中，
+          服务提供器（=服务提供者）绑定 到 服务容器。
+     */
     'providers' => [
 
         /*

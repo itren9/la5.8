@@ -10,7 +10,15 @@
 | the IoC container for the system binding all of the various parts.
 |
 */
-
+/**
+ * mcj
+ *
+    我们要做的第一件事是 创建一个新的Laravel应用程序实例
+    作为laravel所有部件的“粘合剂”
+    系统绑定 所有各个部分的 IoC容器。
+ *
+    容器  Illuminate\Foundation\Application
+ */
 $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );

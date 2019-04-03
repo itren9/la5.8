@@ -1,0 +1,6 @@
+/.idea
+/.gitignore
+/.en
+/storage/*.key
+/public
+/vendor

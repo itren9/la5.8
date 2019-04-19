@@ -5,8 +5,8 @@
     <title>后盾人 - houdunren.com</title>
     <meta name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <link href="/node_modules/hdjs/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/node_modules/hdjs/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../node_modules/hdjs/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../node_modules/hdjs/css/font-awesome.min.css" rel="stylesheet">
     <link href="/css/hdcms.css" rel="stylesheet">
 </head>
 <body class="hdcms-login">
@@ -47,7 +47,7 @@
         </div>
     </div>
     <div class="copyright">
-        Powered by hdcms v2.0 © 2014-2019 www.hdcms.com
+       底部
     </div>
 </div>
 </body>

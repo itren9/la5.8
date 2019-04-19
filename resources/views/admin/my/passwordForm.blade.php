@@ -9,20 +9,20 @@
             <div class="panel-body">
                 <div class="form-group">
                     <label for="" class="col-sm-2 control-label">原密码</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="original_password">
+                    <div class="col-sm-3">
+                        <input type="password" class="form-control" name="original_password" required="required">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="" class="col-sm-2 control-label">新密码</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="password">
+                    <div class="col-sm-3">
+                        <input type="password" class="form-control" name="password" required="required">
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="" class="col-sm-2 control-label">确认密码</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" name="password_confirmation">
+                    <div class="col-sm-3">
+                        <input type="password" class="form-control" name="password_confirmation" required="required">
                     </div>
                 </div>
             </div>

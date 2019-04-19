@@ -6,7 +6,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                         &times;
                     </button>
-                    <h4 class="modal-title">后盾人 - 友情提示</h4>
+                    <h4 class="modal-title">后台错误</h4>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -26,7 +26,7 @@
             </div>
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
-    <script>
+   <script>
         require(['bootstrap'], function ($) {
             $('#modal_message').modal('show');
             setTimeout(function () {

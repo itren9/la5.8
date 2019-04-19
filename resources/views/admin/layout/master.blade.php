@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8"/>
-    <title>后盾人 - houdunren.com</title>
+    <title>后台</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="viewport"
           content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -65,7 +65,7 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
                             <i class="fa fa-w fa-user"></i>
-                            {{Auth::guard('admin')->user()->username}} <span class="caret"></span>
+                            {{--{{Auth::guard('admin')->user()->username}}--}}12 <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="/admin/changePassword">我的帐号</a></li>
@@ -131,7 +131,7 @@
     <a href="http://www.hdphp.com">开源框架</a>
     <a href="http://bbs.houdunwang.com">后盾论坛</a>
     <br>
-    Powered by hdcms v2.0 © 2014-2019 www.hdcms.com 后盾人咨询电话: 010-86467608
+
 </div>
 <script>
     require(['bootstrap']);

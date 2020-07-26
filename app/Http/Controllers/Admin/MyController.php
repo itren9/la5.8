@@ -20,7 +20,7 @@ class MyController extends CommonController
         $model           = Auth::guard('admin')->user();
         $model->password = bcrypt($request['password']);
         $model->save();
-        flash('密码修改成功')->overlay();
+        flash('修改成功')->overlay();
         return redirect()->back();
     }
 }

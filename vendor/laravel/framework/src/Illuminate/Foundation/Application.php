@@ -148,9 +148,9 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
             $this->setBasePath($basePath);
         }
 
-        $this->registerBaseBindings();
-        $this->registerBaseServiceProviders();
-        $this->registerCoreContainerAliases();
+        $this->registerBaseBindings();//mcj 基础创建 把一些要用的东西赋值给 instances 属性
+        $this->registerBaseServiceProviders();//mcj 基础服务提供者 ，把一些要用的东西赋值给 bindings 属性 events log router
+        $this->registerCoreContainerAliases();//mcj 容器别名
     }
 
     /**
@@ -165,7 +165,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
 
     /**
      * Register the basic bindings into the container.
-     *
+     * mcj 给 $this->instance 属性 赋值
      * @return void
      */
     protected function registerBaseBindings()
@@ -174,8 +174,8 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
 
         $this->instance('app', $this);
 
-        $this->instance(Container::class, $this);
-        $this->singleton(Mix::class);
+        $this->instance(Container::class, $this);// mcj 暂时不知道何用
+        $this->singleton(Mix::class);//mcj 第二种bing 调用方式 暂时不知道何用
 
         $this->instance(PackageManifest::class, new PackageManifest(
             new Filesystem, $this->basePath(), $this->getCachedPackagesPath()
@@ -189,6 +189,7 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
      */
     protected function registerBaseServiceProviders()
     {
+        //mcj 三个是必须的 服务提供者
         $this->register(new EventServiceProvider($this));
         $this->register(new LogServiceProvider($this));
         $this->register(new RoutingServiceProvider($this));

@@ -13,7 +13,7 @@
 /**
  * mcj
  *
-    我们要做的第一件事是 创建一个新的Laravel应用程序实例
+    我们要做的第一件事是 创建一个新的Laravel应用程序实例 即服务容器
     作为laravel所有部件的“粘合剂”
     系统绑定 所有各个部分的 IoC容器。
  *
@@ -33,7 +33,7 @@ $app = new Illuminate\Foundation\Application(
 | incoming requests to this application from both the web and CLI.
 |
 */
-
+//mcj
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
     App\Http\Kernel::class
@@ -59,5 +59,5 @@ $app->singleton(
 | from the actual running of the application and sending responses.
 |
 */
-
+//dd($app);
 return $app;

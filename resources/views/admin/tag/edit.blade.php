@@ -4,7 +4,7 @@
         <li><a href="/admin/tag">标签列表</a></li>
         <li class="active"><a href="/admin/tag/create">修改标签</a></li>
     </ul>
-    <form action="/admin/tag/{{$model['id']}}" method="post" class="form-horizontal" role="form">
+    <form action="/admin/tag/{{ $model['id'] }}" method="post" class="form-horizontal" role="form">
         {{csrf_field()}}
         {{ method_field('PUT') }}
         <div class="panel panel-default">

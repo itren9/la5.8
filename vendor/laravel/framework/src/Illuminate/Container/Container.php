@@ -218,9 +218,30 @@ class Container implements ArrayAccess, ContainerContract
      * @param  \Closure|string|null  $concrete
      * @param  bool  $shared
      * @return void
+     *
+     * mcj
+     * 第一种调用bing方法 方式：传入字符串 events
+     * $abstract = events 字符串
+     * $concrete = 匿名函数
+     * $shared = true
+     * eg: $this->app->singleton('events', function ($app) {
+     *
+     * 第二种调用bing方法 方式： 传入一个字符串【类的地址】
+     * $abstract = 'Illuminate\Contracts\Mix'
+     * $concrete = 'Illuminate\Contracts\Mix'=>匿名函数
+     * eg:$this->singleton(Mix::class);
+     *
+     * 第三种调用ing方法 方式： 传入2个字符串
+     * $abstract = 'Illuminate\Contracts\Http\Kernel
+     * $concrete => App\Http\Kernel
+     * eg:$app->singleton(
+        Illuminate\Contracts\Http\Kernel::class,
+        App\Http\Kernel::class
+        );
      */
     public function bind($abstract, $concrete = null, $shared = false)
     {
+        //mcj 移除旧的实例
         $this->dropStaleInstances($abstract);
 
         // If no concrete type was given, we will simply set the concrete type to the
@@ -233,8 +254,12 @@ class Container implements ArrayAccess, ContainerContract
         // If the factory is not a Closure, it means it is just a class name which is
         // bound into this container to the abstract type and we will just wrap it
         // up inside its own Closure to give us more convenience when extending.
+
+        //mcj   创建一个包含变量与其值的数组。
+        // 对每个参数，compact() 在当前的符号表中查找该变量名并将它添加到输出的数组中，变量名成为键名而变量的内容成为该键的值。
+        //简单说，它做的事和 extract() 正好相反。返回将所有变量添加进去后的数组。
         if (! $concrete instanceof Closure) {
-            $concrete = $this->getClosure($abstract, $concrete);
+            $concrete = $this->getClosure($abstract, $concrete);//mcj 核心作用
         }
 
         $this->bindings[$abstract] = compact('concrete', 'shared');
@@ -242,6 +267,7 @@ class Container implements ArrayAccess, ContainerContract
         // If the abstract type was already resolved in this container we'll fire the
         // rebound listener so that any objects which have already gotten resolved
         // can have their copy of the object updated via the listener callbacks.
+        //mcj 检查是否解析过 或 已经存在所要绑定对象对应的实例
         if ($this->resolved($abstract)) {
             $this->rebound($abstract);
         }
@@ -252,7 +278,14 @@ class Container implements ArrayAccess, ContainerContract
      *
      * @param  string  $abstract
      * @param  string  $concrete
-     * @return \Closure
+     * @return \Closure 返回匿名函数
+     * 第二种调用bing方法方式：
+     * $abstract = 'Illuminate\Contracts\Mix'
+     * $concrete = 'Illuminate\Contracts\Mix'=>匿名函数
+     *
+     * 第三种调用bing方法方式：
+     * $abstract = 'Illuminate\Contracts\Http\Kernel
+     * $concrete => App\Http\Kernel
      */
     protected function getClosure($abstract, $concrete)
     {
@@ -351,6 +384,7 @@ class Container implements ArrayAccess, ContainerContract
      * @param  string  $abstract
      * @param  \Closure|string|null  $concrete
      * @return void
+     * mcj 绑定到容器的对象只会被解析一次，之后的调用都返回相同的实例：
      */
     public function singleton($abstract, $concrete = null)
     {
@@ -392,8 +426,9 @@ class Container implements ArrayAccess, ContainerContract
      */
     public function instance($abstract, $instance)
     {
+        //mcj 移除已经存在的抽象的别名
         $this->removeAbstractAlias($abstract);
-
+        //mcj 检查是否已经存在该别名的绑定的对象
         $isBound = $this->bound($abstract);
 
         unset($this->aliases[$abstract]);
@@ -402,7 +437,7 @@ class Container implements ArrayAccess, ContainerContract
         // we will fire the rebound callbacks registered with the container and it
         // can be updated with consuming classes that have gotten resolved here.
         $this->instances[$abstract] = $instance;
-
+        //mcj  判断是否已经绑定
         if ($isBound) {
             $this->rebound($abstract);
         }
@@ -644,6 +679,9 @@ class Container implements ArrayAccess, ContainerContract
      * @return mixed
      *
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     *
+     * mcj $abstract = Illuminate\Contracts\Http\Kernel
+     *     $concrete 是匿名函数
      */
     protected function resolve($abstract, $parameters = [], $raiseEvents = true)
     {
@@ -662,7 +700,7 @@ class Container implements ArrayAccess, ContainerContract
 
         $this->with[] = $parameters;
 
-        $concrete = $this->getConcrete($abstract);
+        $concrete = $this->getConcrete($abstract);//mcj 是匿名函数
 
         // We're ready to instantiate an instance of the concrete type registered for
         // the binding. This will instantiate the types, as well as resolve any of
@@ -706,6 +744,8 @@ class Container implements ArrayAccess, ContainerContract
      *
      * @param  string  $abstract
      * @return mixed   $concrete
+     *
+     * mcj $abstract = Illuminate\Contracts\Http\Kernel
      */
     protected function getConcrete($abstract)
     {
@@ -781,6 +821,9 @@ class Container implements ArrayAccess, ContainerContract
      * @return mixed
      *
      * @throws \Illuminate\Contracts\Container\BindingResolutionException
+     *
+     * mcj $concrete 是匿名函数
+     *
      */
     public function build($concrete)
     {

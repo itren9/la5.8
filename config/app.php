@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'PRC',//mcj 时区设置
 
     /*
     |--------------------------------------------------------------------------
@@ -136,11 +136,13 @@ return [
     /**   mcj
           服务提供者 在config/app.php中配置，laravel自动 注册到 服务容器中，
           服务提供器（=服务提供者）绑定 到 服务容器。
+     *    providers 是具体功能服务的实现者。
      */
     'providers' => [
 
         /*
          * Laravel Framework Service Providers...
+         * 系统框架级别mcj
          */
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
@@ -171,6 +173,7 @@ return [
 
         /*
          * Application Service Providers...
+         * 应用程序级别的 mcj
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,

@@ -37,7 +37,7 @@
             </div>
         </div>
     </form>
-{{--    <script>
+   <script>
         function del(id) {
             require(['util'], function (util) {
                 util.confirm('确定删除吗?', function () {
@@ -51,5 +51,5 @@
                 })
             })
         }
-    </script>--}}
+    </script>
 @endsection

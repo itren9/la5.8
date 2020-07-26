@@ -134,9 +134,9 @@ return [
     |
     */
     /**   mcj
-          服务提供者 在config/app.php中配置，laravel自动 注册到 服务容器中，
+          服务提供者 在config/app.php中配置，laravel自动 注册到 服务容器中。注册中心、引导
           服务提供器（=服务提供者）绑定 到 服务容器。
-     *    providers 是具体功能服务的实现者。
+     *    providers 是具体功能 服务的实现，他在数组providers中 注册这个服务提供者。
      */
     'providers' => [
 
@@ -181,6 +181,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,//mcj  Flash提示组件
+        App\Providers\Test\TestServiceProvider::class,//mcj
 
     ],
 

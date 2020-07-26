@@ -18,8 +18,11 @@ include_once __DIR__.'/admin/web.php';
 //前台路由
 Route::get('/', function () {
     return view('welcome');
+    app('test')->testB();
 });
 //认证
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('test/test','TestController');

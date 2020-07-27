@@ -9,7 +9,7 @@ class EventServiceProvider extends ServiceProvider
 {
     /**
      * Register the service provider.
-     * 第一中调用bing方法的方式
+     * 第一种调用bing方法的方式
      * @return void
      */
     public function register()

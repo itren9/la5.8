@@ -22,7 +22,5 @@ Route::get('/', function () {
 });
 //认证
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::resource('test/test','TestController');
+Route::resource('test','TestController');//5 路由

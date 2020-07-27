@@ -369,6 +369,7 @@ class ComposerStaticInit704d1afcd388b72ffedc3ee2e6442d06
 
     public static $classMap = array (
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
+        'App\\Contracts\\TestContract' => __DIR__ . '/../..' . '/app/Contracts/TestContract.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Admin\\CommonController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CommonController.php',
         'App\\Http\\Controllers\\Admin\\EntryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/EntryController.php',
@@ -381,6 +382,7 @@ class ComposerStaticInit704d1afcd388b72ffedc3ee2e6442d06
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
+        'App\\Http\\Controllers\\TestController' => __DIR__ . '/../..' . '/app/Http/Controllers/TestController.php',
         'App\\Http\\Controllers\\WorkRemarkController' => __DIR__ . '/../..' . '/app/Http/Controllers/WorkRemarkController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\AdminMiddleware' => __DIR__ . '/../..' . '/app/Http/Middleware/AdminMiddleware.php',
@@ -391,7 +393,7 @@ class ComposerStaticInit704d1afcd388b72ffedc3ee2e6442d06
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
-        'App\\Http\\Requests\\AdminPost' => __DIR__ . '/../..',
+        'App\\Http\\Requests\\AdminMyController' => __DIR__ . '/../..' . '/app/Http/Requests/AdminMyController.php',
         'App\\Http\\Requests\\TagRequest' => __DIR__ . '/../..' . '/app/Http/Requests/TagRequest.php',
         'App\\Model\\Admin' => __DIR__ . '/../..' . '/app/Model/Admin.php',
         'App\\Model\\Model' => __DIR__ . '/../..' . '/app/Model/Model.php',
@@ -402,6 +404,8 @@ class ComposerStaticInit704d1afcd388b72ffedc3ee2e6442d06
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Providers\\TestServiceProvider' => __DIR__ . '/../..' . '/app/Providers/TestServiceProvider.php',
+        'App\\Services\\TestService' => __DIR__ . '/../..' . '/app/Services/TestService.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'BeyondCode\\DumpServer\\DumpServerCommand' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerCommand.php',
         'BeyondCode\\DumpServer\\DumpServerServiceProvider' => __DIR__ . '/..' . '/beyondcode/laravel-dump-server/src/DumpServerServiceProvider.php',

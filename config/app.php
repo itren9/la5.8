@@ -182,6 +182,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Laracasts\Flash\FlashServiceProvider::class,//mcj  Flash提示组件
         App\Providers\Test\TestServiceProvider::class,//mcj
+        App\Providers\TestServiceProvider::class,// 3、注册服务提供者
 
     ],
 

@@ -25,12 +25,12 @@ class TestController extends Controller
      */
     public function index()
     {
-        //方式 一
+        //方式 一 必需对应 2个
          $test = App::make('test');
          $test->callMe('TestController');
 
-         //方式 二 依赖注入 解析绑定类 调用callMe方法
-        // $this->test->callMe('TestController');
+         //方式 二 依赖注入 解析绑定类调用callMe方法 对应其中一个
+         $this->test->callMe('TestController');
     }
 
 

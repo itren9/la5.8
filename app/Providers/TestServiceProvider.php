@@ -31,12 +31,12 @@ class TestServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //使用singleton绑定单例
+        //方式一：使用singleton绑定单例
         $this->app->singleton('test', function () {
             return new TestService();
         });
 
-        //使用bind绑定实例到接口以便依赖注入
+        //方式二：使用bind绑定实例到接口以便依赖注入
         $this->app->bind('App\Contracts\TestContract', function () {
             return new TestService();
         });

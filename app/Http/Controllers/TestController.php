@@ -2,6 +2,7 @@
 /**
  * 命令 php artisan make:controller TestController
    desc:4、测试服务提供者
+ * url:https://xueyuanjun.com/post/796
  *
  */
 namespace App\Http\Controllers;
@@ -25,12 +26,12 @@ class TestController extends Controller
      */
     public function index()
     {
-        //方式 一 必需对应 2个
+//        //方式 一 必需对应 方式一和二
          $test = App::make('test');
          $test->callMe('TestController');
 
-         //方式 二 依赖注入 解析绑定类调用callMe方法 对应其中一个
-         $this->test->callMe('TestController');
+         //方式 二 依赖注入 解析绑定类调用callMe方法 对应 方式二
+//         $this->test->callMe('TestController');
     }
 
 

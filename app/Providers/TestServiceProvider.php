@@ -3,7 +3,7 @@
  * Autho: man cheng jun
  * Date: 2020/7/27 0027
  * Time: 16:50
- * description:2、创建服务提供者
+ * description:2、创建服务提供者，注册该test类到容器
  */
 
 namespace App\Providers;
@@ -31,12 +31,12 @@ class TestServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //方式一：使用singleton绑定单例
+        //使用singleton绑定单例
         $this->app->singleton('test', function () {
             return new TestService();
         });
 
-        //方式二：使用bind绑定实例到接口以便依赖注入
+        //使用bind绑定实例 到接口 以便依赖注入
         $this->app->bind('App\Contracts\TestContract', function () {
             return new TestService();
         });

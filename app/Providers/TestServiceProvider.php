@@ -4,6 +4,7 @@
  * Date: 2020/7/27 0027
  * Time: 16:50
  * description:2、创建服务提供者，注册该test类到容器
+ * php artisan make:provider TestServiceProvider
  */
 
 namespace App\Providers;

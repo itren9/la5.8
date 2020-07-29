@@ -17,8 +17,8 @@ include_once __DIR__.'/admin/web.php';
 
 //前台路由
 Route::get('/', function () {
-    return view('welcome');
-    app('test')->testB();
+//    return view('welcome');
+    app('Family')->getPersion();//直接调用类
 });
 //认证
 Auth::routes();

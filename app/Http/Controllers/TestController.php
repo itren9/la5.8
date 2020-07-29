@@ -1,7 +1,7 @@
 <?php
 /**
  * 命令 php artisan make:controller TestController
-   desc:4、测试服务提供者
+   desc:4、测试 服务提供者
  * url:https://xueyuanjun.com/post/796
  *
  */

@@ -30,7 +30,7 @@ class FamilyServiceProvider extends ServiceProvider
         });
 
 
-        /** 第二种调用ing方法 方式： 传入2个字符串
+        /** 第三种调用bing方法 方式： 传入2个字符串
         * $abstract = 'Illuminate\Contracts\Http\Kernel
          * $concrete => App\Http\Kernel
         * eg:$app->singleton(

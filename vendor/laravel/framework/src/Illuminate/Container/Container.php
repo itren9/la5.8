@@ -221,17 +221,17 @@ class Container implements ArrayAccess, ContainerContract
      *
      * mcj
      * 第一种调用bing方法 方式：传入字符串 events
-     * $abstract = events 字符串
+     * $abstract = events 字符串 ==别名
      * $concrete = 匿名函数
      * $shared = true
      * eg: $this->app->singleton('events', function ($app) {
      *
-     * 第二种调用bing方法 方式： 传入一个字符串【类的地址】
+     * 【没太多意义】第二种调用bing方法 方式： 传入一个字符串【类的地址】
      * $abstract = 'Illuminate\Contracts\Mix'
-     * $concrete = 'Illuminate\Contracts\Mix'=>匿名函数
+     * $concrete = 'Illuminate\Contracts\Mix'=>
      * eg:$this->singleton(Mix::class);
      *
-     * 第三种调用ing方法 方式： 传入2个字符串
+     * 第三种调用bing方法 方式： 传入2个字符串  字符串别名，类的名字
      * $abstract = 'Illuminate\Contracts\Http\Kernel
      * $concrete => App\Http\Kernel
      * eg:$app->singleton(

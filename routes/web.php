@@ -20,10 +20,12 @@ Route::get('/', function () {
 //    return view('welcome');//展示首页
 
     //Family 是别名
-    //app('Family')->getPersion();//用别名 获取对象,  需要提前 绑定到容器
+    //app('Family')->getPersion();//方法一：用别名 获取对象,  需要提前 绑定到容器
 
-    app('App\Services\Family\FamilyService')->getPersion();// 对应 第三种绑定方式 不需要注册到容器中也可以调用
+    app('App\Services\Family\FamilyService')->getPersion();////方法二： 对应 第三种绑定方式 不需要注册到容器中也可以调用(写类的路径)
 });
+
+
 //认证
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

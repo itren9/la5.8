@@ -206,7 +206,8 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
         $this->hasBeenBootstrapped = true;
 
         foreach ($bootstrappers as $bootstrapper) {
-            $this['events']->dispatch('bootstrapping: '.$bootstrapper, [$this]);
+            //mcj 该类继承了Container，Container实现了 implements ArrayAccess【php预定义接口，作用使得你的对象可以像数组一样可以被访问】， offsetGet() offsetSet()
+            $this['events']->dispatch('bootstrapping: '.$bootstrapper, [$this]);//等价于$this->make('events')->dispatch('bootstrapping: '.$bootstrapper, [$this]);
 
             $this->make($bootstrapper)->bootstrap($this);
 
@@ -559,18 +560,23 @@ class Application extends Container implements ApplicationContract, HttpKernelIn
 
     /**
      * Register all of the configured providers.
-     *
+     * mcj 将所有配置的Providers 载入框架
      * @return void
      */
     public function registerConfiguredProviders()
     {
+        //mcj 调用自己
         $providers = Collection::make($this->config['app.providers'])
                         ->partition(function ($provider) {
                             return Str::startsWith($provider, 'Illuminate\\');
                         });
+        //所有服务提供者 （系统和自定义的）
+//        dd($this->config['app.providers']);//mcj
 
+        //增加 引入的第三方
         $providers->splice(1, 0, [$this->make(PackageManifest::class)->providers()]);
 
+        //合成所有 服务提供者
         (new ProviderRepository($this, new Filesystem, $this->getCachedServicesPath()))
                     ->load($providers->collapse()->toArray());
     }

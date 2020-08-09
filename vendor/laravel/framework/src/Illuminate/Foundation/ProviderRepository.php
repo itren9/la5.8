@@ -64,6 +64,7 @@ class ProviderRepository
         // Next, we will register events to load the providers for each of the events
         // that it has requested. This allows the service provider to defer itself
         // while still getting automatically loaded when a certain event occurs.
+        //mcj 注册触发延迟加载的事件
         foreach ($manifest['when'] as $provider => $events) {
             $this->registerLoadEvents($provider, $events);
         }
@@ -71,10 +72,11 @@ class ProviderRepository
         // We will go ahead and register all of the eagerly loaded providers with the
         // application so their services can be registered with the application as
         // a provided service. Then we will set the deferred service list on it.
+        //mcj 注册触发非延迟加载的事件
         foreach ($manifest['eager'] as $provider) {
             $this->app->register($provider);
         }
-
+        //mcj 将延迟加载的 serviceProvider 与其服务对应关系加载到 Appliaction对象中
         $this->app->addDeferredServices($manifest['deferred']);
     }
 

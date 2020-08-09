@@ -34,6 +34,7 @@ require __DIR__.'/../vendor/autoload.php';
 | the responses back to the browser and delight our users.
 |
 */
+//mcj 我们要做的第一件事是 创建一个新的Laravel应用程序实例 即服务容器
 
 $app = require_once __DIR__.'/../bootstrap/app.php';
 
@@ -48,9 +49,14 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 | and wonderful application we have prepared for them.
 |
 */
-//echo Illuminate\Contracts\Http\Kernel::class;  Illuminate\Contracts\Http\Kernel
-$kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
+//echo Illuminate\Contracts\Http\Kernel::class;  Illuminate\Contracts\Http\Kernel;
+//mcj
+$kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);// Illuminate\Contracts\Http\Kernel::class 别名
+//$kernel = $app->make(App\Http\Kernel::class);//等价$kernel = $app->make(Illuminate\Contracts\Http\Kernel::class); //mcj
 
+//dd($kernel);die;
+
+//dd(Illuminate\Http\Request::capture());die;
 $response = $kernel->handle(
     $request = Illuminate\Http\Request::capture()
 );

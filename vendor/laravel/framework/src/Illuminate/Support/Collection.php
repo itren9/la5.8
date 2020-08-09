@@ -80,6 +80,7 @@ class Collection implements ArrayAccess, Arrayable, Countable, IteratorAggregate
      */
     public static function make($items = [])
     {
+        //mcj 延迟加载 注册  new static 用法和new self()区别 https://segmentfault.com/q/1010000002468880
         return new static($items);
     }
 

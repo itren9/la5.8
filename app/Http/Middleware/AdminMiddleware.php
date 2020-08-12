@@ -1,5 +1,5 @@
 <?php
-//后台中加件
+//后台中间件
 // php artisan make:middleware AdminMiddleware
 
 namespace App\Http\Middleware;

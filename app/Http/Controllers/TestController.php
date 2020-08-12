@@ -11,6 +11,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App;
 use App\Contracts\TestContract;
+use App\Events\UserLogin;
 class TestController extends Controller
 {
     //依赖注入 test 服务接口
@@ -32,6 +33,10 @@ class TestController extends Controller
 
          //方式 二 依赖注入 解析绑定类调用callMe方法 对应 方式二
 //         $this->test->callMe('TestController');
+    }
+    //触发事件 查看监听日志
+    public function testEvents(){
+        event(new UserLogin());
     }
 
 
